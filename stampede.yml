@@ -1,0 +1,21 @@
+pullrequests:
+  config:
+  tasks:
+    - id: lint-node-js
+    - id: unit-tests-nodejs
+    - id: pr-standards
+branches:
+  - branch: master
+    config:
+    tasks:
+      - id: unit-tests-nodejs
+releases:
+  draft:
+    config:
+    tasks:
+      - id: capture-milestone-release-notes
+  published:
+    config:
+      npm-package: stampede-cli
+    tasks:
+      - id: deploy-npm-package
