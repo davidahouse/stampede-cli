@@ -13,6 +13,8 @@ const setRepoConfig = require('../commands/setRepoConfig')
 const ghEvent = require('../commands/ghEvent')
 const queues = require('../commands/queues')
 const process = require('../commands/process')
+const builds = require('../commands/builds')
+const activeTasks = require('../commands/activeTasks')
 
 require('pkginfo')(module)
 const conf = require('rc')('stampede', {
@@ -74,6 +76,20 @@ vorpal
     .command('process [task]', 'Process items from a task queue')
     .action(function(args, callback) {
       process.handle(args.task, conf, callback)
+    })
+
+// Active builds and tasks
+
+vorpal
+    .command('builds', 'Get list of active builds')
+    .action(function(args, callback) {
+      builds.handle(cache, callback)
+    })
+
+vorpal
+    .command('activeTasks [build]', 'Get list of active tasks for a build')
+    .action(function(args, callback) {
+      activeTasks.handle(args.build, cache, callback)
     })
 
 vorpal.delimiter('stampede>').show()
