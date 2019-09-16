@@ -1,4 +1,5 @@
 const Queue = require('bull')
+const chalk = require('chalk')
 
 /**
  * monitor command
@@ -9,7 +10,7 @@ const Queue = require('bull')
 async function handle(queue, redisConfig, callback) {
   const q = new Queue(queue, redisConfig)
   q.process(function(job) {
-    console.log(job.notification)
+    console.log(chalk.green(job.data.notification) + ' [' + chalk.yellow(job.data.id) + ']')
   })
 }
 
