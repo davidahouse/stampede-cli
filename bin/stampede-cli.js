@@ -15,6 +15,7 @@ const queues = require('../commands/queues')
 const process = require('../commands/process')
 const builds = require('../commands/builds')
 const activeTasks = require('../commands/activeTasks')
+const monitor = require('../commands/monitor')
 
 require('pkginfo')(module)
 const conf = require('rc')('stampede', {
@@ -76,6 +77,12 @@ vorpal
     .command('process [task]', 'Process items from a task queue')
     .action(function(args, callback) {
       process.handle(args.task, conf, callback)
+    })
+
+vorpal
+    .command('monitor [queue]', 'Monitor a notifications queue')
+    .action(function(args, callback) {
+      monitor.handle(args.queue != null ? args.queue : 'stampede-cli', conf, callback)
     })
 
 // Active builds and tasks
