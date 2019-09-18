@@ -27,7 +27,6 @@ const conf = require('rc')('stampede', {
 
 cache.startCache(conf)
 
-clear()
 console.log(chalk.yellow(figlet.textSync('stampede', {horizontalLayout: 'full'})))
 console.log(chalk.yellow(module.exports.version))
 
@@ -99,4 +98,5 @@ vorpal
       activeTasks.handle(args.build, cache, callback)
     })
 
+vorpal.history('stampede-cli')
 vorpal.delimiter('stampede>').show()
