@@ -30,20 +30,20 @@ async function handle(cache, redisConfig, callback) {
   for (let index = 0; index < tasks.length; index++) {
     const q = new Queue('stampede-' + tasks[index], redisConfig)
     const stats = await q.getJobCounts()
-    console.log(chalk.yellow('|') + 
-      chalk.green(tasks[index].padEnd(maxQueueNameLength)) + 
+    console.log(chalk.yellow('|') +
+      chalk.green(tasks[index].padEnd(maxQueueNameLength)) +
       chalk.yellow('|') +
-      chalk.green(stats.waiting.toString().padStart(3)) + 
+      chalk.green(stats.waiting.toString().padStart(3)) +
       chalk.yellow('|') +
-      chalk.green(stats.active.toString().padStart(3)) + 
+      chalk.green(stats.active.toString().padStart(3)) +
       chalk.yellow('|') +
-      chalk.green(stats.completed.toString().padStart(3)) + 
+      chalk.green(stats.completed.toString().padStart(3)) +
       chalk.yellow('|') +
-      chalk.green(stats.failed.toString().padStart(3)) + 
+      chalk.green(stats.failed.toString().padStart(3)) +
       chalk.yellow('|') +
-      chalk.green(stats.delayed.toString().padStart(3)) + 
+      chalk.green(stats.delayed.toString().padStart(3)) +
       chalk.yellow('|') +
-      chalk.green(stats.paused.toString().padStart(3)) + 
+      chalk.green(stats.paused.toString().padStart(3)) +
       chalk.yellow('|'))
   }
   callback()
