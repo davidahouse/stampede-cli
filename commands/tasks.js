@@ -1,3 +1,5 @@
+const chalk = require('chalk')
+
 /**
  * tasks command
  * @param {*} cache
@@ -5,7 +7,9 @@
  */
 async function handle(cache, callback) {
   const tasks = await cache.fetchTasks()
-  console.dir(tasks)
+  for (let index = 0; index < tasks.length; index++) {
+    console.log(chalk.green(tasks[index]))
+  }
   callback()
 }
 
