@@ -1,12 +1,12 @@
 #!/usr/bin/env node
 const chalk = require('chalk')
-const clear = require('clear')
 const figlet = require('figlet')
 const vorpal = require('vorpal')()
 const cache = require('stampede-cache')
 
 // commands
 const tasks = require('../commands/tasks')
+const setTasks = require('../commands/setTasks')
 const task = require('../commands/task')
 const repoConfig = require('../commands/repoConfig')
 const setRepoConfig = require('../commands/setRepoConfig')
@@ -36,6 +36,11 @@ vorpal
     .command('tasks', 'List the configured tasks in this stampede system')
     .action(function(args, callback) {
       tasks.handle(cache, callback)
+    })
+vorpal
+    .command('setTasks [path]', 'Set the tasks list for the system')
+    .action(function(args, callback) {
+      setTasks.handle(args.path, cache, callback)
     })
 vorpal
     .command('task [id]', 'Get the configuration for a single task')
