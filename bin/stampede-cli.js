@@ -12,7 +12,7 @@ const repoConfig = require('../commands/repoConfig')
 const setRepoConfig = require('../commands/setRepoConfig')
 const ghEvent = require('../commands/ghEvent')
 const queues = require('../commands/queues')
-const process = require('../commands/process')
+const flush = require('../commands/flush')
 const builds = require('../commands/builds')
 const activeTasks = require('../commands/activeTasks')
 const monitor = require('../commands/monitor')
@@ -78,9 +78,9 @@ vorpal
     })
 
 vorpal
-    .command('process [task]', 'Process items from a task queue')
+    .command('flush [task]', 'Flush items from a task queue')
     .action(function(args, callback) {
-      process.handle(args.task, conf, callback)
+      flush.handle(args.task, conf, callback)
     })
 
 vorpal
