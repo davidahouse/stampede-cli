@@ -1,3 +1,5 @@
+const chalk = require('chalk')
+
 /**
  * builds command
  * @param {*} cache
@@ -5,7 +7,9 @@
  */
 async function handle(cache, callback) {
   const builds = await cache.fetchActiveBuilds()
-  console.dir(builds)
+  for (let index = 0; index < builds.length; index++) {
+    console.log(chalk.green(builds[index]))
+  }
   callback()
 }
 
