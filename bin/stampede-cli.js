@@ -9,9 +9,11 @@ const tasks = require('../commands/tasks')
 const setTasks = require('../commands/setTasks')
 const task = require('../commands/task')
 
-// repo config
+// config
 const repoConfig = require('../commands/repoConfig')
 const setRepoConfig = require('../commands/setRepoConfig')
+const configDefaults = require('../commands/configDefaults')
+const setConfigDefaults = require('../commands/setConfigDefaults')
 
 // server interactions
 const ghEvent = require('../commands/ghEvent')
@@ -58,7 +60,7 @@ vorpal
       task.handle(args.id, cache, callback)
     })
 
-// Repo Config
+// Config
 
 vorpal
     .command('repoConfig [owner] [repo]', 'Get the configuration in the cache for the repository')
@@ -69,6 +71,18 @@ vorpal
     .command('setRepoConfig [owner] [repo] [file]', 'Set the configuration in the cache for the repository')
     .action(function(args, callback) {
       setRepoConfig.handle(args.owner, args.repo, args.file, cache, callback)
+    })
+
+vorpal
+    .command('configDefaults', 'Get the config defaults set in the server')
+    .action(function(args, callback) {
+      configDefaults.handle(cache, callback)
+    })
+
+vorpal
+    .command('setConfigDefaults [file]', 'Set the config defaults')
+    .action(function(args, callback) {
+      setConfigDefaults.handle(args.file, cache, callback)
     })
 
 // Server interactions
