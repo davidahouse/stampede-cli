@@ -4,18 +4,28 @@ const figlet = require('figlet')
 const vorpal = require('vorpal')()
 const cache = require('stampede-cache')
 
-// commands
+// tasks
 const tasks = require('../commands/tasks')
 const setTasks = require('../commands/setTasks')
 const task = require('../commands/task')
+
+// repo config
 const repoConfig = require('../commands/repoConfig')
 const setRepoConfig = require('../commands/setRepoConfig')
+
+// server interactions
 const ghEvent = require('../commands/ghEvent')
+
+// queues
 const queues = require('../commands/queues')
 const flush = require('../commands/flush')
+const monitor = require('../commands/monitor')
+const pause = require('../commands/pause')
+const resume = require('../commands/resume')
+
+// builds
 const builds = require('../commands/builds')
 const activeTasks = require('../commands/activeTasks')
-const monitor = require('../commands/monitor')
 
 require('pkginfo')(module)
 const conf = require('rc')('stampede', {
@@ -87,6 +97,18 @@ vorpal
     .command('monitor [queue]', 'Monitor a notifications queue')
     .action(function(args, callback) {
       monitor.handle(args.queue != null ? args.queue : 'stampede-cli', conf, callback)
+    })
+
+vorpal
+    .command('pause [queue]', 'Pause a queue')
+    .action(function(args, callback) {
+      pause.handle(args.queue, conf, callback)
+    })
+
+vorpal
+    .command('resume [queue]', 'Resume a queue')
+    .action(function(args, callback) {
+      resume.handle(args.queue, conf, callback)
     })
 
 // Active builds and tasks
