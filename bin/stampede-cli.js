@@ -14,6 +14,8 @@ const repoConfig = require('../commands/repoConfig')
 const setRepoConfig = require('../commands/setRepoConfig')
 const configDefaults = require('../commands/configDefaults')
 const setConfigDefaults = require('../commands/setConfigDefaults')
+const configOverrides = require('../commands/configOverrides')
+const setConfigOverrides = require('../commands/setConfigOverrides')
 
 // server interactions
 const ghEvent = require('../commands/ghEvent')
@@ -78,11 +80,21 @@ vorpal
     .action(function(args, callback) {
       configDefaults.handle(cache, callback)
     })
-
 vorpal
     .command('setConfigDefaults [file]', 'Set the config defaults')
     .action(function(args, callback) {
       setConfigDefaults.handle(args.file, cache, callback)
+    })
+
+vorpal
+    .command('configOverrides', 'Get the config overrides set in the server')
+    .action(function(args, callback) {
+      configOverrides.handle(cache, callback)
+    })
+vorpal
+    .command('setConfigOverrides [file]', 'Set the config overrides')
+    .action(function(args, callback) {
+      setConfigOverrides.handle(args.file, cache, callback)
     })
 
 // Server interactions
