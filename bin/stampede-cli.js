@@ -120,9 +120,9 @@ vorpal
     })
 
 vorpal
-    .command('monitor [queue]', 'Monitor a notifications queue')
+    .command('monitor [queue] [path]', 'Monitor a notifications queue')
     .action(function(args, callback) {
-      monitor.handle(args.queue != null ? args.queue : 'stampede-cli', conf, callback)
+      monitor.handle(args.queue != null ? args.queue : 'stampede-cli', args.path, conf, callback)
     })
 
 vorpal
