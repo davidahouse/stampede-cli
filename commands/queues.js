@@ -4,11 +4,18 @@ const chalk = require('chalk')
 /**
  * queues command
  * @param {*} cache
- * @param {*} redisConfig
+ * @param {*} conf
  * @param {*} callback
  */
-async function handle(cache, redisConfig, callback) {
+async function handle(cache, conf, callback) {
   const tasks = await cache.fetchTasks()
+  const redisConfig = {
+    redis: {
+      port: conf.redisPort,
+      host: conf.redisHost,
+      password: conf.redisPassword,
+    },
+  }
 
   let maxQueueNameLength = 0
   for (let index = 0; index < tasks.length; index++) {
