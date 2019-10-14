@@ -14,6 +14,12 @@ async function handle(taskID, cache, callback) {
   for (let index = 0; index < config.config.length; index++) {
     console.log(chalk.green(config.config[index].key))
   }
+  if (config.worker != null) {
+    console.log(chalk.yellow('Worker:'))
+    Object.keys(config.worker).forEach(function(key) {
+      console.log(chalk.green(key) + ' ' + chalk.green(config.worker[key]))
+    })
+  }
   callback()
 }
 
