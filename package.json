@@ -1,7 +1,7 @@
 {
   "name": "stampede-cli",
   "main": "bin/stampede-cli.js",
-  "version": "0.4.0",
+  "version": "0.4.1",
   "description": "A command line app for interacting with stampede",
   "license": "MIT",
   "repository": "davidahouse/stampede-cli",
@@ -21,7 +21,7 @@
     "ora": "^3.2.0",
     "pkginfo": "^0.4.1",
     "rc": "^1.2.8",
-    "stampede-cache": "^0.2.0",
+    "stampede-cache": "^0.6.1",
     "vorpal": "^1.12.0",
     "js-yaml": "^3.13.1"
   },
