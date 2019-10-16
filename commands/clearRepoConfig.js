@@ -1,6 +1,3 @@
-const fs = require('fs')
-const yaml = require('js-yaml')
-
 /**
  * clearRepoConfig command
  * @param {*} owner
