@@ -1,7 +1,7 @@
 {
   "name": "stampede-cli",
   "main": "bin/stampede-cli.js",
-  "version": "0.4.2",
+  "version": "0.5.0",
   "description": "A command line app for interacting with stampede",
   "license": "MIT",
   "repository": "davidahouse/stampede-cli",
