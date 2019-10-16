@@ -31,6 +31,7 @@ const resume = require('../commands/resume')
 // builds
 const builds = require('../commands/builds')
 const activeTasks = require('../commands/activeTasks')
+const cancelBuild = require('../commands/cancelBuild')
 
 require('pkginfo')(module)
 const conf = require('rc')('stampede', {
@@ -149,6 +150,11 @@ vorpal
     .command('builds', 'Get list of active builds')
     .action(function(args, callback) {
       builds.handle(cache, callback)
+    })
+vorpal
+    .command('cancelBuild [build]', 'Cancel a build and all its tasks')
+    .action(function(args, callback) {
+      cancelBuild.handle(args.build, cache, callback)
     })
 
 vorpal
