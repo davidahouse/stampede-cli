@@ -12,6 +12,7 @@ const task = require('../commands/task')
 // config
 const repoConfig = require('../commands/repoConfig')
 const setRepoConfig = require('../commands/setRepoConfig')
+const clearRepoConfig = require('../commands/clearRepoConfig')
 const configDefaults = require('../commands/configDefaults')
 const setConfigDefaults = require('../commands/setConfigDefaults')
 const configOverrides = require('../commands/configOverrides')
@@ -73,6 +74,11 @@ vorpal
     .command('setRepoConfig [owner] [repo] [file]', 'Set the configuration in the cache for the repository')
     .action(function(args, callback) {
       setRepoConfig.handle(args.owner, args.repo, args.file, cache, callback)
+    })
+vorpal
+    .command('clearRepoConfig [owner] [repo]', 'Clears the configuration in the cache for the repository')
+    .action(function(args, callback) {
+      clearRepoConfig.handle(args.owner, args.repo, args.file, cache, callback)
     })
 
 vorpal
