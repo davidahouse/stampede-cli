@@ -1,6 +1,6 @@
-const fs = require('fs')
-const chalk = require('chalk')
-const yaml = require('js-yaml')
+const fs = require('fs');
+const chalk = require('chalk');
+const yaml = require('js-yaml');
 
 /**
  * setConfigDefaults command
@@ -10,13 +10,13 @@ const yaml = require('js-yaml')
  */
 async function handle(path, cache, callback) {
   if (fs.existsSync(path)) {
-    const defaults = yaml.safeLoad(fs.readFileSync(path))
-    cache.storeSystemDefaults(defaults)
-    console.log(chalk.green('Set defaults from ' + path))
+    const defaults = yaml.safeLoad(fs.readFileSync(path));
+    cache.storeSystemDefaults(defaults);
+    console.log(chalk.green('Set defaults from ' + path));
   } else {
-    console.log(chalk.red('Unable to set defaults, file not found at ' + path))
+    console.log(chalk.red('Unable to set defaults, file not found at ' + path));
   }
-  callback()
+  callback();
 }
 
-module.exports.handle = handle
+module.exports.handle = handle;

@@ -1,4 +1,4 @@
-const chalk = require('chalk')
+const chalk = require('chalk');
 
 /**
  * tasks command
@@ -6,11 +6,11 @@ const chalk = require('chalk')
  * @param {*} callback
  */
 async function handle(cache, callback) {
-  const tasks = await cache.fetchTasks()
+  const tasks = await cache.fetchTasks();
   for (let index = 0; index < tasks.length; index++) {
-    console.log(chalk.green(tasks[index]))
+    console.log(chalk.green(tasks[index]));
   }
-  callback()
+  callback();
 }
 
-module.exports.handle = handle
+module.exports.handle = handle;
