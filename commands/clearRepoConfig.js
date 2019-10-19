@@ -7,8 +7,8 @@
  * @param {*} callback
  */
 async function handle(owner, repo, file, cache, callback) {
-  cache.removeRepoConfig(owner, repo)
-  callback()
+  cache.removeRepoConfig(owner, repo);
+  callback();
 }
 
-module.exports.handle = handle
+module.exports.handle = handle;
