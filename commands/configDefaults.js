@@ -1,4 +1,4 @@
-const chalk = require('chalk')
+const chalk = require('chalk');
 
 /**
  * configDefaults command
@@ -6,13 +6,16 @@ const chalk = require('chalk')
  * @param {*} callback
  */
 async function handle(cache, callback) {
-  const defaults = await cache.fetchSystemDefaults()
-  const keys = Object.keys(defaults.defaults)
+  const defaults = await cache.fetchSystemDefaults();
+  const keys = Object.keys(defaults.defaults);
   for (let index = 0; index < keys.length; index++) {
-    console.log(chalk.yellow(keys[index]) + ': ' +
-    chalk.green(defaults.defaults[keys[index]]))
+    console.log(
+      chalk.yellow(keys[index]) +
+        ': ' +
+        chalk.green(defaults.defaults[keys[index]])
+    );
   }
-  callback()
+  callback();
 }
 
-module.exports.handle = handle
+module.exports.handle = handle;

@@ -1,5 +1,5 @@
-const fs = require('fs')
-const LynnRequest = require('lynn-request')
+const fs = require('fs');
+const LynnRequest = require('lynn-request');
 
 /**
  * ghEvent command
@@ -10,8 +10,8 @@ const LynnRequest = require('lynn-request')
  * @param {*} callback
  */
 async function handle(host, port, event, eventFile, callback) {
-  const eventContents = fs.readFileSync(eventFile)
-  const eventBody = JSON.parse(eventContents)
+  const eventContents = fs.readFileSync(eventFile);
+  const eventBody = JSON.parse(eventContents);
   const request = {
     title: 'ghEvent',
     options: {
@@ -23,15 +23,15 @@ async function handle(host, port, event, eventFile, callback) {
       body: eventBody,
       headers: {
         'Content-Type': 'application/json',
-        'x-github-event': event,
-      },
-    },
-  }
-  const runner = new LynnRequest(request)
+        'x-github-event': event
+      }
+    }
+  };
+  const runner = new LynnRequest(request);
   runner.execute(function(result) {
-    console.dir(result)
-    callback()
-  })
+    console.dir(result);
+    callback();
+  });
 }
 
-module.exports.handle = handle
+module.exports.handle = handle;

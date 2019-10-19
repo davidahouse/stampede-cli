@@ -1,4 +1,4 @@
-const Queue = require('bull')
+const Queue = require('bull');
 
 /**
  * process command
@@ -7,10 +7,10 @@ const Queue = require('bull')
  * @param {*} callback
  */
 async function handle(taskID, redisConfig, callback) {
-  const q = new Queue('stampede-' + taskID, redisConfig)
+  const q = new Queue('stampede-' + taskID, redisConfig);
   q.process(function(job) {
-    console.log(JSON.stringify(job, null, 4))
-  })
+    console.log(JSON.stringify(job, null, 4));
+  });
 }
 
-module.exports.handle = handle
+module.exports.handle = handle;

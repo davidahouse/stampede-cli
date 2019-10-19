@@ -1,11 +1,10 @@
 /* eslint-env mocha */
-const expect = require('chai').expect
+const expect = require('chai').expect;
 
 describe('Stampede CLI', function() {
-  beforeEach(() => {
-  })
+  beforeEach(() => {});
 
   it('should execute the test', function() {
-    expect(true).to.equal(true)
-  })
-})
+    expect(true).to.equal(true);
+  });
+});
