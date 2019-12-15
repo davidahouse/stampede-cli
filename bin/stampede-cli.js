@@ -6,7 +6,8 @@ const cache = require("stampede-cache");
 
 // tasks
 const tasks = require("../commands/tasks");
-const setTasks = require("../commands/setTasks");
+const setTask = require("../commands/setTask");
+const removeTask = require("../commands/removeTask");
 const task = require("../commands/task");
 
 // config
@@ -58,14 +59,19 @@ vorpal
     tasks.handle(cache, callback);
   });
 vorpal
-  .command("setTasks [path]", "Set the tasks list for the system")
-  .action(function(args, callback) {
-    setTasks.handle(args.path, cache, callback);
-  });
-vorpal
   .command("task [id]", "Get the configuration for a single task")
   .action(function(args, callback) {
     task.handle(args.id, cache, callback);
+  });
+vorpal
+  .command("removeTask [id]", "Remove a task config from the system")
+  .action(function(args, callback) {
+    removeTask.handle(args.id, cache, callback);
+  })
+vorpal
+  .command("setTask [path]", "Set the task config for a single task")
+  .action(function(args, callback) {
+    setTask.handle(args.path, cache, callback);
   });
 
 // Config
