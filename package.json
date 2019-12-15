@@ -22,7 +22,7 @@
     "ora": "^3.2.0",
     "pkginfo": "^0.4.1",
     "rc": "^1.2.8",
-    "stampede-cache": "^0.8.0",
+    "stampede-cache": "^0.10.1",
     "vorpal": "^1.12.0"
   },
   "devDependencies": {
