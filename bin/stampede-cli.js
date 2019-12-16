@@ -21,6 +21,8 @@ const removeConfigDefault = require("../commands/removeConfigDefault")
 const configOverrides = require("../commands/configOverrides");
 const setConfigOverrides = require("../commands/setConfigOverrides");
 const setConfigQueues = require("../commands/setConfigQueues");
+const setConfigOverride = require("../commands/setConfigOverride")
+const removeConfigOverride = require("../commands/removeConfigOverride")
 
 // server interactions
 const ghEvent = require("../commands/ghEvent");
@@ -134,6 +136,17 @@ vorpal
   .action(function(args, callback) {
     setConfigOverrides.handle(args.file, cache, callback);
   });
+vorpal
+  .command("setConfigOverride [override] [value]", "Set a config override")
+  .action(function(args, callback) {
+    setConfigOverride.handle(args.override, args.value, cache, callback);
+  });
+vorpal
+  .command("removeConfigOverride [override]", "Remove a config override")
+  .action(function(args, callback) {
+    removeConfigOverride.handle(args.override, cache, callback);
+  });
+
 vorpal
   .command("setConfigQueues [file]", "Set the list of queues in the config")
   .action(function(args, callback) {
