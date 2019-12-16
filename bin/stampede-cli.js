@@ -16,6 +16,8 @@ const setRepoConfig = require("../commands/setRepoConfig");
 const clearRepoConfig = require("../commands/clearRepoConfig");
 const configDefaults = require("../commands/configDefaults");
 const setConfigDefaults = require("../commands/setConfigDefaults");
+const setConfigDefault = require("../commands/setConfigDefault")
+const removeConfigDefault = require("../commands/removeConfigDefault")
 const configOverrides = require("../commands/configOverrides");
 const setConfigOverrides = require("../commands/setConfigOverrides");
 const setConfigQueues = require("../commands/setConfigQueues");
@@ -110,6 +112,16 @@ vorpal
   .command("setConfigDefaults [file]", "Set the config defaults")
   .action(function(args, callback) {
     setConfigDefaults.handle(args.file, cache, callback);
+  });
+vorpal
+  .command("setConfigDefault [default] [value]", "Set a config default")
+  .action(function(args, callback) {
+    setConfigDefault.handle(args.default, args.value, cache, callback);
+  });
+vorpal
+  .command("removeConfigDefault [default]", "Remove a config default")
+  .action(function(args, callback) {
+    removeConfigDefault.handle(args.default, cache, callback);
   });
 
 vorpal
