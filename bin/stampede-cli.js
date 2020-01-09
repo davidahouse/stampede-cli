@@ -16,13 +16,13 @@ const setRepoConfig = require("../commands/setRepoConfig");
 const clearRepoConfig = require("../commands/clearRepoConfig");
 const configDefaults = require("../commands/configDefaults");
 const setConfigDefaults = require("../commands/setConfigDefaults");
-const setConfigDefault = require("../commands/setConfigDefault")
-const removeConfigDefault = require("../commands/removeConfigDefault")
+const setConfigDefault = require("../commands/setConfigDefault");
+const removeConfigDefault = require("../commands/removeConfigDefault");
 const configOverrides = require("../commands/configOverrides");
 const setConfigOverrides = require("../commands/setConfigOverrides");
 const setConfigQueues = require("../commands/setConfigQueues");
-const setConfigOverride = require("../commands/setConfigOverride")
-const removeConfigOverride = require("../commands/removeConfigOverride")
+const setConfigOverride = require("../commands/setConfigOverride");
+const removeConfigOverride = require("../commands/removeConfigOverride");
 
 // server interactions
 const ghEvent = require("../commands/ghEvent");
@@ -34,6 +34,7 @@ const monitor = require("../commands/monitor");
 const pause = require("../commands/pause");
 const resume = require("../commands/resume");
 const clean = require("../commands/clean");
+const empty = require("../commands/empty");
 
 // builds
 const builds = require("../commands/builds");
@@ -71,7 +72,7 @@ vorpal
   .command("removeTask [id]", "Remove a task config from the system")
   .action(function(args, callback) {
     removeTask.handle(args.id, cache, callback);
-  })
+  });
 vorpal
   .command("setTask [path]", "Set the task config for a single task")
   .action(function(args, callback) {
@@ -182,6 +183,12 @@ vorpal
   .command("clean [task]", "Clean items from a task queue")
   .action(function(args, callback) {
     clean.handle(args.task, conf, callback);
+  });
+
+vorpal
+  .command("empty [queue]", "Empty all items from a queue")
+  .action(function(args, callback) {
+    empty.handle(args.queue, conf, callback);
   });
 
 vorpal
