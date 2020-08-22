@@ -16,7 +16,7 @@
     "commander": "^2.19.0",
     "dateformat": "^3.0.3",
     "expand-template": "^2.0.3",
-    "figlet": "^1.2.1",
+    "figlet": "^1.5.0",
     "js-yaml": "^3.13.1",
     "lynn-request": "^0.4.5",
     "ora": "^3.2.0",
