@@ -10,19 +10,19 @@
     "stampede-cli": "bin/stampede-cli.js"
   },
   "dependencies": {
-    "bull": "^3.10.0",
+    "bull": "^3.16.0",
     "chalk": "^2.4.2",
     "clear": "^0.1.0",
-    "commander": "^2.19.0",
+    "commander": "^2.20.3",
     "dateformat": "^3.0.3",
     "expand-template": "^2.0.3",
-    "figlet": "^1.2.1",
     "js-yaml": "^3.14.0",
+    "figlet": "^1.5.0",
     "lynn-request": "^0.4.5",
     "ora": "^3.2.0",
     "pkginfo": "^0.4.1",
     "rc": "^1.2.8",
-    "stampede-cache": "^0.11.1",
+    "stampede-cache": "^0.15.0",
     "vorpal": "^1.12.0"
   },
   "devDependencies": {
