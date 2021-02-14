@@ -18,7 +18,7 @@
     "expand-template": "^2.0.3",
     "js-yaml": "^3.14.1",
     "figlet": "^1.5.0",
-    "lynn-request": "^0.4.6",
+    "lynn-request": "^0.4.7",
     "ora": "^3.2.0",
     "pkginfo": "^0.4.1",
     "rc": "^1.2.8",
