@@ -10,7 +10,7 @@
     "stampede-cli": "bin/stampede-cli.js"
   },
   "dependencies": {
-    "bull": "^3.20.0",
+    "bull": "^3.20.1",
     "chalk": "^2.4.2",
     "clear": "^0.1.0",
     "commander": "^2.20.3",
